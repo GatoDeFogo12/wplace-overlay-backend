@@ -16,7 +16,7 @@ app.get("/files/*", async (req, res) => {
   try {
     const [baseImageRes, overlayRes] = await Promise.all([
       axios.get(`${BASE_IMAGE_URL}/files/${originalPath}`, { responseType: "arraybuffer" }),
-      axios.get(`https://seu-servidor.com/sua-imagem.png`, { responseType: "arraybuffer" }) // Substituir depois
+      axios.get(`https://raw.githubusercontent.com/GatoDeFogo12/wplace-overlay/main/files/${originalPath}`, { responseType: "arraybuffer" })
     ]);
 
     const baseImage = sharp(baseImageRes.data).resize(3000, 3000, { fit: "fill" });
